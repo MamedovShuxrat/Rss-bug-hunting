@@ -36,7 +36,7 @@ function deleteTask(id) {
 }
 
 function clearCompleted() {
-  tasks = [];
+  tasks = tasks.filter((t) => t.done === false);
   render();
 }
 
@@ -57,7 +57,7 @@ function updateCounter() {
 
 function render() {
   const visible = getVisibleTasks();
-  list.replaceChildren(); 
+  list.replaceChildren();
   for (let i = 0; i < visible.length; i++) {
     const task = visible[i];
 
